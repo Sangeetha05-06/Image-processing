@@ -1,0 +1,4 @@
+Degradation Type,No. of Test Frames,Accuracy,Precision,Recall,F1-score,IoU,Remarks
+Crack,2,0.771,0.036,0.462,0.067,0.035,Needs improvement
+Alligator Crack,2,0.597,0.166,0.758,0.272,0.158,Needs improvement
+Pothole,2,0.982,0.6,0.622,0.606,0.443,Needs improvement

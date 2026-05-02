@@ -1,0 +1,4 @@
+Video ID,Degradation Type,Tested Frames,Best IoU,Average IoU,Average Precision,Average Recall
+Video 1,Crack,2,0.049,0.035,0.036,0.462
+Video 2,Alligator Crack,2,0.18,0.158,0.166,0.758
+Video 3,Pothole,2,0.546,0.443,0.6,0.622

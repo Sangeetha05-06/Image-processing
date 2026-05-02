@@ -1,0 +1,7 @@
+Frame,Video ID,Degradation,Accuracy,Precision,Recall,F1-score,IoU,Dice,Specificity
+mask_1.jpg,Video 1,Crack,0.772,0.022,0.396,0.041,0.021,0.041,0.777
+mask_5.jpg,Video 1,Crack,0.77,0.051,0.528,0.093,0.049,0.093,0.775
+mask_20.jpg,Video 2,Alligator Crack,0.599,0.189,0.79,0.305,0.18,0.305,0.575
+mask_25.jpg,Video 2,Alligator Crack,0.596,0.144,0.726,0.24,0.136,0.24,0.584
+mask_p15.jpg,Video 3,Pothole,0.995,0.748,0.669,0.706,0.546,0.706,0.998
+mask_p19.jpg,Video 3,Pothole,0.97,0.453,0.576,0.507,0.34,0.507,0.981
