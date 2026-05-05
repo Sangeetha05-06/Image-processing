@@ -1,59 +1,173 @@
-# Road Damage Detection – Integrated Pipeline
-### ICT2403 – Graphics and Image Processing | Submission 04
+# Image Enhancement and Segmentation Pipeline
+
+##  Project Overview
+
+This project implements a complete image processing pipeline for **road scene analysis** using image enhancement and segmentation techniques. The system processes input frames, enhances image quality, performs segmentation, and generates final detected outputs.
+
+The pipeline is designed as part of the **Final Integration Program** requirement and demonstrates all intermediate and final processing stages.
 
 ---
 
-## Overview
+##  Processing Pipeline
 
-This program integrates the full road damage detection pipeline developed across all three team members:
+The system follows a structured pipeline:
 
-| Module | Damage Type | Member | Method |
-|--------|-------------|--------|--------|
-| `segment_linear_cracks()` | Linear / longitudinal cracks | Member 1 | Canny edge detection + morphological closing |
-| `segment_alligator_cracks()` | Alligator (fatigue) cracks | Member 2 | Black-Hat transform + density filtering |
-| `segment_potholes()` | Potholes | Member 3 | Inverse binary threshold + contour area filter |
+Input Frames → Image Enhancement → Segmentation → Contour Detection → Final Output
+
+### Key Stages:
+
+1. **Input Frames**
+2. **Grayscale Conversion**
+3. **Blurring (Noise Reduction)**
+4. **Contrast Enhancement**
+5. **Thresholding (Segmentation)**
+6. **Morphological Operations (Opening, Dilation)**
+7. **Edge Detection**
+8. **Contour Detection**
+9. **Final Marked Output**
 
 ---
 
-## Folder Structure
-SUBMISSION04_GROUP_NAME_25
+##  Project Structure
+
+```
+segmentation01/
 │
-├── .ipynb_checkpoints/
-├── output_member2/
-├── road2_gaussian_contrast_mem2/
+├── Untitled-Copy2.ipynb          # Main implementation notebook
+├── quantitative_results.csv     # Evaluation results
+├── table_a_overall.csv          # Overall performance metrics
+├── table_b_videowise.csv        # Video-wise results
+│
+├── ground_truth_masks/          # Ground truth segmentation masks
+├── predicted_masks/             # Model predicted masks
+│
+├── output_member2/              # Full pipeline outputs (step-by-step)
+│   ├── 1_input_frames/
+│   ├── 2_gray_frames/
+│   ├── 3_blur_frames/
+│   ├── 4_blackhat_frames/
+│   ├── 5_thresh_frames/
+│   ├── 6_opening_frames/
+│   ├── 7_dilation_frames/
+│   ├── 8_edges_frames/
+│   └── 9_contours_frames/
+│
+├── segmentation_results/        # Segmentation pipeline outputs (method 1)
+├── segmentation_results1/       # Segmentation pipeline outputs (method 2)
+│
 ├── road_member2_gaussian_contrast/
+├── road2_member2_gaussian_contrast/
 ├── road_member3_sharpened/
-├── segmentation_results/
-│
-├── member1.ipynb
-├── member2.ipynb
-├── member3.ipynb
-└── README.md      
+```
 
-## Output Description
+---
 
-| Folder | Contents |
-|--------|----------|
-| `enhanced_frames/` | One enhanced frame per input (Gaussian blur + contrast stretch) |
-| `member1_cracks/` | `edges_*.jpg`, `morph_*.jpg`, `result_*.jpg` (green bounding boxes) |
-| `member2_alligator/` | `blackhat_*.jpg`, `connect_*.jpg`, `result_*.jpg` (red bounding boxes) |
-| `member3_potholes/` | `thresh_*.jpg`, `mask_*.jpg`, `result_*.jpg` (blue bounding boxes) |
-| `final_marked_outputs/` | `final_*.jpg` – all detections overlaid on one frame |
+##  Image Enhancement Techniques
 
-**Colour coding in final output:**
+The project applies several enhancement methods:
 
-- 🟩 **Green** = Linear Crack (Member 1)
-- 🟥 **Red** = Alligator Crack (Member 2)
-- 🟦 **Blue** = Pothole (Member 3)
+* Grayscale conversion
+* Gaussian blur for noise reduction
+* Blackhat transformation for contrast enhancement
+* Gaussian contrast adjustment
+* Image sharpening
 
-  ---
+These steps improve feature visibility before segmentation.
 
-## Team Contributions
+---
 
-| Member | Responsibility | Method |
-|--------|---------------|--------|
-| Member 1 | Linear crack segmentation | Canny + morphological closing |
-| Member 2 | Alligator crack segmentation | Black-Hat + density filter |
-| Member 3 | Pothole segmentation | Inverse threshold + contour filtering |
-| Member 4 | Documentation | Documenting |
+##  Segmentation Methods
 
+Segmentation is performed using:
+
+* Thresholding techniques
+* Morphological operations (opening, dilation)
+* Edge detection
+* Contour extraction
+
+Multiple segmentation pipelines are implemented and stored in:
+
+* `segmentation_results/`
+* `segmentation_results1/`
+
+---
+
+##  Evaluation
+
+The project includes quantitative evaluation using:
+
+* Ground truth masks (`ground_truth_masks/`)
+* Predicted masks (`predicted_masks/`)
+* CSV result files:
+
+  * `quantitative_results.csv`
+  * `table_a_overall.csv`
+  * `table_b_videowise.csv`
+
+---
+
+##  How to Run
+
+### Requirements:
+
+* Python 3.x
+* Jupyter Notebook
+
+### Install dependencies:
+
+```
+pip install opencv-python numpy matplotlib
+```
+
+### Run the project:
+
+1. Open:
+
+```
+Untitled-Copy2.ipynb
+```
+
+2. Run all cells step-by-step
+
+---
+
+##  Input
+
+* Road video frames (already included in folders)
+
+---
+
+##  Output
+
+The system generates:
+
+* Enhanced frames
+* Segmented masks
+* Edge-detected frames
+* Contour-marked outputs
+
+All outputs are stored in structured folders inside:
+
+* `output_member2/`
+* `segmentation_results/`
+* `segmentation_results1/`
+
+---
+
+## key Features
+
+* Complete end-to-end processing pipeline
+* Multiple segmentation approaches
+* Intermediate step visualization
+* Quantitative performance evaluation
+* Organized output storage for reporting
+
+---
+
+##  Notes
+
+* All intermediate processing stages are saved for analysis
+* Multiple enhancement techniques are tested and compared
+* Results are reproducible using the provided notebook
+
+---
